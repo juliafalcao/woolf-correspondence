@@ -15,6 +15,7 @@ A corpus of 3756 letters written by Virginia Woolf between the years of 1896 and
 | Friday [24 September 1937] |          Vanessa Bell |                [Monk’s House, Rodmell, Sussex] | I didn’t come to tea today,—not that you proba... |
 |         [23? January 1923] |      Violet Dickinson | Hogarth House, Paradise Road, Richmond, Surrey | My Violet,\nYou are the most faithful of subsc... |
 
+The entire set is in `vw.csv` (normal comma-separated, strings escaped by `"` when necessary.)
 
 ## Pre-processing
 The only pre-processing I did on the raw text was to adjust whitespace and line breaks; the letters resulting from scraping the book had extra misplaced line breaks so I cleaned them and left only those in between paragraphs. If you don't need these either, just remove all `\n`.
@@ -23,13 +24,4 @@ I also edited the recipients because they were all written as "To Vanessa Bell",
 
 ### Dates
 
-The dates in which the letters were written/sent are also recorded in various formats. Since I wanted to standardize at least the years for my work, I wrote a function to extract them as best as I could, using `dateparser` and regular expressions. This code can be found in the notebook `extract_years.ipynb` and the final version with the `year` column is in `vw_with_years.csv`. I uploaded it as a separate file because I haven't manually validated all of the rows so I can't guarantee 100% accuracy.
-
-## Some stats
-- 3756 complete letters
-- written between the years* of 1896 and 1941
-- average content length of 334 words, 1519 characters
-- 254 distinct recipients
-
-
-\* regarding the years, see [Dates](#dates)
+The dates in which the letters were written/sent are also recorded in various formats. Since I wanted to standardize at least the years for my work, I wrote a function to extract them as best as I could, using [dateparser](https://dateparser.readthedocs.io/) and regular expressions. This code can be found in the notebook `extract_years.ipynb` and the final version with the "year" column is in `vw_with_years.csv`. I uploaded it as a separate file because I haven't manually validated all of the rows so I can't guarantee 100% accuracy.
